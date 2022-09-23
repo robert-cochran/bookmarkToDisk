@@ -5,6 +5,8 @@ const fs = require('fs/promises');
 
 const nbDummyTracksFilePath = '/Users/rob.cochran/.nb/home/dummy.md'
 const localTracksFilePath = '/Users/rob.cochran/sandbox/bookmark-to-disk/data/tracks.md'
+const actualTracksPath = '/Users/rob.cochran/.nb/tracks/tracks.md'
+const tracksFilePath = actualTracksPath;
 
 const corsOptions = {
   allowedHeaders: ["authorization", "Content-Type"], // you can change the headers
@@ -13,8 +15,6 @@ const corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false
 }
-
-//https://www.digitalocean.com/community/tutorials/how-to-create-a-web-server-in-node-js-with-the-http-module
 
 async function appendFile(filePath, appendedContent) {
   try { await fs.appendFile(filePath, '\n' + appendedContent, { encoding: 'utf8' }); } 
@@ -28,7 +28,7 @@ app.use(express.urlencoded({extended: true}))
 app.post('/', function (request, response, next) {
   console.log("BODY RECEIVED: " + request.body)
   console.log("URL RECEIVED: " + request.body.url)
-  appendFile(localTracksFilePath, request.body.url)
+  appendFile(tracksFilePath, request.body.url)
   response.send("\n\n/ POST ACK -- \n\nurl: " + request.body.url)
 })
 
@@ -40,3 +40,7 @@ app.get('/', function (request, response, next) {
 app.listen(8080, function () {
   console.log('CORS-enabled web server listening on port 8080')
 })
+
+//TODO Remove the newline from the appendFile function
+//TODO Function that cleans up dead links?
+//TODO use a package that comes with node https://www.digitalocean.com/community/tutorials/how-to-create-a-web-server-in-node-js-with-the-http-module

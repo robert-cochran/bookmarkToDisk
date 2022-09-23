@@ -37,8 +37,8 @@ async function getContentsAsText(url){
 		},
 	});
 	const response = await fetch(req);
-	console.log(response)
 	const text = await response.text();
+	return text;
 	
 	// const response = await fetch('http://127.0.0.1:8080')
 	// const json = await response.json()
@@ -68,10 +68,23 @@ async function postContent(url, content){
 async function main(){
 	// postContent(url="https://localhost:8080", content="https://YOUTUBE.URL/y67cj2a")
 	const contents = await getContentsAsText('http://127.0.0.1:8080')
-	
 	console.log(contents)
 }
+main();
+// browser.browserAction.onClicked.addListener((tab) => {
+// 	console.log("tab");
+// 	console.log(tab.url);
+// 	console.log("tab");
+// 	// main();
+// });
+function printStuff() {
+	console.log("HELLO WORLDD")
+}
 
-browser.browserAction.onClicked.addListener(main);
+
+browser.browserAction.onClicked.addListener(function() {
+	console.log("HELLLLLOOOOOWROLDLSSS")
+});
+
 
 

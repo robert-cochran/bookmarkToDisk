@@ -14,19 +14,22 @@
     "default_icon": {
       "16": "icons/border-48.png",
       "32": "icons/border-48.png"
-    }
+    },
+    "default_popup": "popup/choose_page.html",
+    "browser_style": true
   },
 
   "content_scripts": [
     {
-        "matches": ["<all_urls>"],
-        "js": ["bookmarkToDisk.js"]
+      "matches": ["<all_urls>"],
+      "js": ["bookmarkToDisk.js"]
     }
   ],
   
   "permissions": [
     "*://127.0.0.1/*",
-    "*://localhost/*"
+    "*://localhost/*",
+    "tabs"
   ]
   
 
