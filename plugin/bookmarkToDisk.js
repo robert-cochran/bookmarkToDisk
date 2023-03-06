@@ -11,11 +11,10 @@ const dummyURL = "http://localhost:8080/notes.md"
 const htmlContentsURL = "https://" + domain + ":" + port + "/home:/" + filename
 const textContentsURL = "http://" + domain + ":" + port + "/--original/home/" + filename
 const editContentsURL = "http://"  + domain + ":" + port +  "/home:" + filenumber + "?--edit"
-//core url examples
+//nb server url examples
 //http://localhost:6789/home:93?--edit
 //http://localhost:6789/--original/home/dummy.md
 //http://localhost:6789/home:93
-//RESTer extension
 
 
 const contentTypeHeader = "Content-Type: application/x-www-form-urlencoded"
@@ -87,4 +86,12 @@ browser.browserAction.onClicked.addListener(function() {
 });
 
 
-
+// TABS
+// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Working_with_the_Tabs_API
+// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs
+// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/Tab
+// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/onClicked
+// TOOLBAR BUTTON
+// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Add_a_button_to_the_toolbar
+// DEBUGGING BOOKMARK
+// about:debugging#/runtime/this-firefox 
